@@ -31,7 +31,7 @@ const Card: FC<Props> = ({ info }) => {
       </div>
       {!open && (
         <>
-          <div className='w-full flex flex-col  mt-4'>
+          <div className='w-full flex flex-col  mt-4 shadow-2xl rounded-2xl '>
             <div className='flex flex-col w-full p-4'>
               <p className='font-extrabold'>Catch Phrase:</p>
               <p className='font-light'>{info.company.catchPhrase}</p>
