@@ -9,9 +9,9 @@ body {
   font-family: "Roboto Mono", monospace;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: black;
+  background-color: #dedede;
   min-height: 100vh;
-  color: white;
+  color: black;
 }
 
 code {

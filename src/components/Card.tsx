@@ -7,7 +7,7 @@ interface Props {
 const Card: FC<Props> = ({ info }) => {
   const [open, setOpen] = useState<Boolean>(true)
   return (
-    <div className='bg-gray-600 w-full m-2 rounded-2xl p-10 flex flex-col items-center'>
+    <div className='bg-white w-full m-2 rounded-2xl p-10 flex flex-col items-center'>
       <div className='flex w-full justify-around items-center'>
         <p className='w-1/5'>{info.username}</p>
         <div className='flex flex-col w-1/5'>
@@ -22,7 +22,10 @@ const Card: FC<Props> = ({ info }) => {
           <p className='font-extrabold'>City:</p>
           <p className='font-light'>{info.address.city}</p>
         </div>
-        <button className='w-1/5 btn' onClick={() => setOpen(!open)}>
+        <button
+          className='w-1/5 btn btn-outline btn-secondary'
+          onClick={() => setOpen(!open)}
+        >
           {open ? "View Details" : "Hide Details"}
         </button>
       </div>
