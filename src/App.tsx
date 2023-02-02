@@ -1,26 +1,40 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from "react"
+import Card from "./components/Card"
 
-function App() {
+const App = () => {
+  const [loading, setLoading] = useState<Boolean>(true)
+  const [data, setData] = useState<any>(null)
+  const getData = async () => {
+    const response = await fetch("https://jsonplaceholder.typicode.com/users")
+    const data = await response.json()
+    setData(data)
+    console.log(data)
+  }
+
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false)
+    }, 3000)
+    getData()
+  }, [])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='w-full flex flex-col items-center pl-10 pr-10'>
+      <div className='w-full mt-10 flex flex-col items-center'>
+        {loading ? (
+          "Loading..."
+        ) : (
+          <>
+            <p className='font-bold'>Details</p>
+            {data?.length > 0 &&
+              data.map((item: any) => {
+                return <Card info={item} />
+              })}
+          </>
+        )}
+      </div>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
