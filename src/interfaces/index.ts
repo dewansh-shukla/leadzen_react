@@ -21,5 +21,6 @@ interface Info {
   }
   id: number
 }
+type testInterface = {}
 
-export type { Info }
+export type { Info, testInterface }
